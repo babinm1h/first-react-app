@@ -1,0 +1,16 @@
+.header {
+    background-color: #fff;
+}
+.header {
+    background-color: rgb(51, 204, 255);
+    min-width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    &_logo {
+        img {
+            width: 60px;
+        }
+    }
+}

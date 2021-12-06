@@ -1,0 +1,29 @@
+.profile {
+    &_block {
+        display: flex;
+        align-items: center;
+    }
+    &_avatar {
+        margin-right: 20px;
+        img {
+            width: 180px;
+            height: 180px;
+            border-radius: 99999px;
+            object-fit: cover;
+            @media (max-width: 1000px) {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    }
+    &_info {
+    }
+    &_name {
+        font-weight: bold;
+        font-size: 24px;
+        margin-bottom: 7px;
+        text-transform: capitalize;
+    }
+    &_status {
+    }
+}
