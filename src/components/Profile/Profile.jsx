@@ -1,4 +1,5 @@
 import React from 'react';
+import MyPostsContainer from '../containers/MyPostsContainer';
 import "./Profile.scss"
 
 const Profile = () => {
@@ -14,8 +15,7 @@ const Profile = () => {
                 </div>
             </div>
 
-            
-
+            <MyPostsContainer />
         </div>
     );
 };

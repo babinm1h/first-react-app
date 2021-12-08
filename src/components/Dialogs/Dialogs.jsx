@@ -1,9 +1,20 @@
 import React from 'react';
+import "./Dialogs.scss"
+import Messages from './Messages/Messages';
+import MyDialogs from './MyDialogs/MyDialogs';
 
-const Dialogs = () => {
+
+
+
+const Dialogs = (props) => {
     return (
-        <div>
-            dialog
+        <div className="dialogs">
+            <div className="dialogs_row">
+
+                <MyDialogs dialogs={props.dialogs} />
+                <Messages messages={props.messages} addNewMessage={props.addNewMessage} />
+
+            </div>
         </div>
     );
 };

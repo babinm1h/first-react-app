@@ -1,0 +1,73 @@
+.dialogs {
+    background-color: #fff;
+    &_row {
+        display: flex;
+    }
+    &_column {
+        background-color: #fff;
+        min-height: 100vh;
+        &:first-of-type {
+            flex: 0 1 300px;
+            border-right: 2px solid #ccc;
+        }
+    }
+}
+
+.dialogs-users {
+    &_item {
+        display: flex;
+        align-items: center;
+        padding: 10px 20px;
+        border-bottom: 2px solid #ccc;
+        cursor: pointer;
+        transition: all 0.1s linear;
+        &:hover {
+            background-color: #e2e2e2;
+        }
+        img {
+            margin-right: 15px;
+        }
+    }
+    &_name {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 1.5;
+    }
+}
+.messages {
+    padding: 20px;
+    &_row {
+        display: flex;
+        flex-direction: column;
+        max-height: 650px;
+        overflow-y: scroll;
+        height: 100vh;
+        padding-right: 16px;
+    }
+    &_item {
+        display: flex;
+        align-items: center;
+        background-color: rgb(211, 243, 255);
+        border-radius: 20px;
+        padding: 15px;
+        margin-bottom: 30px;
+        line-height: 1.5;
+    }
+    &_text {
+    }
+    &_textarea {
+    }
+    &_form {
+        padding: 30px;
+        margin-top: 30px;
+        border-top: 2px solid #ccc;
+        display: flex;
+        align-items: center;
+        button {
+            margin-left: 20px;
+        }
+        textarea {
+            height: 70px;
+        }
+    }
+}

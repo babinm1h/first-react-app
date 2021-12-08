@@ -37,9 +37,8 @@ body {
   -webkit-text-size-adjust: 100%;
 }
 input,
-button,
 textarea {
-  font-family: inherit;
+  border: 2px solid rgba(51, 204, 255, 1);
 }
 input::-ms-clear {
   display: none;
@@ -79,7 +78,9 @@ $myblue: rgb(211, 243, 255);
 }
 body {
   overflow-y: scroll;
-  // background-color: #ebebeb;
+  background-color: #ebebeb;
+  min-width: 100%;
+  min-height: 100%;
 }
 .container {
   margin: 0 auto;
@@ -94,8 +95,7 @@ body {
   position: relative;
   &_content {
     flex: 0 1 100%;
-    padding: 15px 10px;
-    background-color: #ebebeb;
+    background-color: #fff;
     min-height: 100vh;
   }
 }
@@ -106,4 +106,19 @@ body {
   min-height: 100%;
   overflow: hidden;
   max-width: 100%;
+}
+.small_avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 99999px;
+  object-fit: cover;
+}
+.big_avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 99999px;
+  object-fit: cover;
+}
+.someError {
+  border: 2px solid red;
 }

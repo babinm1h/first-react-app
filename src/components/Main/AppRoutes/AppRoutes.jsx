@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router';
+import DialogsContainer from '../../containers/DialogsContainer';
 import Dialogs from '../../Dialogs/Dialogs';
 import Music from '../../Music/Music';
 import News from '../../News/News';
@@ -12,7 +13,7 @@ const AppRoutes = () => {
     return (
         <Routes>
             <Route path="/profile" element={<Profile />} />
-            <Route path="/dialogs" element={<Dialogs />} />
+            <Route path="/dialogs" element={<DialogsContainer />} />
             <Route path="/users" element={<Users />} />
             <Route path="/music" element={<Music />} />
             <Route path="/news" element={<News />} />
