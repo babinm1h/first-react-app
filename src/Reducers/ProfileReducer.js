@@ -1,4 +1,4 @@
-import { ADD_POST } from "../action/actionCreators"
+import { ADD_POST, SET_USER_PROFILE } from "../action/actionCreators"
 
 
 let initialState = {
@@ -6,7 +6,9 @@ let initialState = {
         { id: 1, text: "Good luck!", likes: 777 },
         { id: 2, text: "Some text 123", likes: 10 },
         { id: 3, text: "Lorem ipsum dolor sit amet consectetur adipisicing.", likes: 27 },
-    ]
+    ],
+
+    profile: null
 }
 
 export const ProfileReducer = (state = initialState, action) => {
@@ -18,6 +20,9 @@ export const ProfileReducer = (state = initialState, action) => {
                 ...state,
                 posts: [...state.posts, newPost]
             }
+
+        case SET_USER_PROFILE:
+            return { ...state, profile: action.payload }
 
         default:
             return state

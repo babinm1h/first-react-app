@@ -1,6 +1,8 @@
 import React from 'react';
 import { Route, Routes } from 'react-router';
 import DialogsContainer from '../../containers/DialogsContainer';
+import { ProfileContainer } from '../../containers/ProfileContainer';
+import UsersContainer from '../../containers/UsersContainer';
 import Dialogs from '../../Dialogs/Dialogs';
 import Music from '../../Music/Music';
 import News from '../../News/News';
@@ -12,9 +14,9 @@ import ErrorPage from './ErrorPage';
 const AppRoutes = () => {
     return (
         <Routes>
-            <Route path="/profile" element={<Profile />} />
+            <Route path="/profile/*" element={<ProfileContainer />} />
             <Route path="/dialogs" element={<DialogsContainer />} />
-            <Route path="/users" element={<Users />} />
+            <Route path="/users" element={<UsersContainer />} />
             <Route path="/music" element={<Music />} />
             <Route path="/news" element={<News />} />
 
