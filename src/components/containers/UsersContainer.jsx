@@ -1,31 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Users from '../Users/Users';
-import { follow, unfollow, setUsers, setCurrentPage, setTotalCount, setIsLoading } from '../../action/actionCreators';
+import { setUsers, setCurrentPage, setTotalCount, setIsLoading, followingProgress } from '../../action/actionCreators';
 import { usersAPI } from '../../API/usersApi';
 import Preloader from "../common/Preloader/Preloader"
+import { getUsers, follow, unfollow, } from '../../thunks/thunks';
 
 export const UsersContainer = (props) => {
 
     React.useEffect(() => {
-        props.setIsLoading(true)
-        usersAPI.getUsers(props.currentPage, props.pageSize)
-            .then(response => {
-                props.setIsLoading(false)
-                props.setUsers(response.items);
-                props.setTotalCount(response.totalCount = 107)
-            })
+        props.getUsers(props.currentPage, props.pageSize)
     }, [])
 
 
     const onPageChange = (pageNum) => {
-        props.setIsLoading(true)
         props.setCurrentPage(pageNum)
-        usersAPI.getUsers(pageNum, props.pageSize)
-            .then(resp => {
-                props.setIsLoading(false)
-                props.setUsers(resp.items)
-            })
+        props.getUsers(pageNum, props.pageSize)
     }
 
     return (
@@ -41,7 +31,7 @@ export const UsersContainer = (props) => {
                 setUsers={props.setUsers}
                 setCurrentPage={props.setCurrentPage}
                 onPageChange={onPageChange}
-                setTotalCount={props.setTotalCount}
+                followProgress={props.followProgress}
             />
         </>
     );
@@ -55,9 +45,10 @@ const mapStateToProps = (state) => {
         totalUsersCount: state.usersPage.totalUsersCount,
         pageSize: state.usersPage.pageSize,
         isLoading: state.usersPage.isLoading,
+        followProgress: state.usersPage.followProgress
     }
 }
 
 export default connect(mapStateToProps,
-    { follow, unfollow, setUsers, setCurrentPage, setTotalCount, setIsLoading }
+    { setCurrentPage, getUsers, follow, unfollow }
 )(UsersContainer);

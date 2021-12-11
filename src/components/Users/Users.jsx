@@ -7,8 +7,6 @@ import { setCurrentPage } from '../../action/actionCreators';
 
 const Users = ({ follow, unfollow, users, setUsers, ...props }) => {
 
-
-
     let pages = []
     const pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
 
@@ -17,12 +15,11 @@ const Users = ({ follow, unfollow, users, setUsers, ...props }) => {
     }
 
 
-
-
     return (
         <>
             <div className="pagination">
                 {pages.map(p => <span onClick={() => props.onPageChange(p)}
+                    key={p}
                     className={props.currentPage === p
                         ? "pagination_page selected_page"
                         : "pagination_page"
@@ -31,7 +28,9 @@ const Users = ({ follow, unfollow, users, setUsers, ...props }) => {
                 </span>)}
             </div>
 
-            <UsersList follow={follow} unfollow={unfollow} users={users} />
+            <UsersList follow={follow} unfollow={unfollow} users={users}
+                followProgress={props.followProgress}
+            />
         </>
     );
 };

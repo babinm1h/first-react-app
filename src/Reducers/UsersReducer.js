@@ -1,4 +1,4 @@
-import { FOLLOW, SET_USERS, UNFOLLOW, SET_CURRENT_PAGE, SET_TOTAL_USERS_COUNT, IS_LOADING, } from "../action/actionCreators"
+import { FOLLOW, SET_USERS, UNFOLLOW, SET_CURRENT_PAGE, SET_TOTAL_USERS_COUNT, IS_LOADING, FOLLOW_IN_PROGRESS } from "../action/actionCreators"
 
 
 let initialState = {
@@ -6,7 +6,8 @@ let initialState = {
     currentPage: 1,
     totalUsersCount: 0,
     pageSize: 10,
-    isLoading: true
+    isLoading: true,
+    followProgress: []
 }
 
 export const usersReducer = (state = initialState, action) => {
@@ -46,6 +47,13 @@ export const usersReducer = (state = initialState, action) => {
         case IS_LOADING:
             return { ...state, isLoading: action.payload }
 
+        case FOLLOW_IN_PROGRESS:
+            return {
+                ...state,
+                followProgress: action.payload
+                    ? [...state.followProgress, action.id]
+                    : state.followProgress.filter(id => id !== action.id)
+            }
 
         default:
             return state

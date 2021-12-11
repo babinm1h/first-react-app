@@ -13,21 +13,27 @@ export const SET_USERS = "SET_USERS"
 export const SET_CURRENT_PAGE = "SET_CURRENT_PAGE"
 export const SET_TOTAL_USERS_COUNT = "SET_TOTAL_USERS_COUNT"
 export const IS_LOADING = "IS_LOADING"
+export const SET_AUTH_DATA = "SET_AUTH_DATA"
+export const FOLLOW_IN_PROGRESS = "FOLLOW_IN_PROGRESS"
 
 
 
 // action creators
 // profile actions
 export const addNewMessage = (message) => ({ type: ADD_MESSAGE, payload: message })
-export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, payload: profile })
+export const setProfile = (profile) => ({ type: SET_USER_PROFILE, payload: profile })
 
 // dialogs actions
 export const addNewPost = (text) => ({ type: ADD_POST, payload: text })
 
 // users actions
-export const follow = (userId) => ({ type: FOLLOW, payload: userId })
-export const unfollow = (userId) => ({ type: UNFOLLOW, payload: userId })
+export const followSuccess = (userId) => ({ type: FOLLOW, payload: userId })
+export const unfollowSuccess = (userId) => ({ type: UNFOLLOW, payload: userId })
 export const setUsers = (users) => ({ type: SET_USERS, payload: users })
 export const setCurrentPage = (currentPage) => ({ type: SET_CURRENT_PAGE, payload: currentPage })
 export const setTotalCount = (totalCount) => ({ type: SET_TOTAL_USERS_COUNT, payload: totalCount })
 export const setIsLoading = (isLoading) => ({ type: IS_LOADING, payload: isLoading })
+export const toggleFollowingProgress = (inProgress, id) => ({ type: FOLLOW_IN_PROGRESS, payload: inProgress, id })
+
+// auth actions
+export const setAuthData = (id, login, email) => ({ type: SET_AUTH_DATA, payload: { id, login, email } })

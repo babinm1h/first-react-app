@@ -14,3 +14,30 @@
         }
     }
 }
+.header_row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.login-block {
+    &_link {
+        font-size: 18px;
+        background-color: #fff;
+        height: 40px;
+        padding: 0 25px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 20px;
+        color: rgba(51, 204, 255, 1);
+        font-weight: bold;
+        transition: all 0.2s linear;
+        &:hover {
+            box-shadow: 0 0 5px black;
+        }
+    }
+    &_name {
+        font-size: 16px;
+        font-weight: 500;
+    }
+}

@@ -34,12 +34,16 @@
 }
 .follow_btn {
     width: 130px;
+    transition: all 0.2s linear;
     @media (max-width: 1000px) {
         width: 100px;
     }
     @media (max-width: 767px) {
         width: 90px;
         font-size: 14px;
+    }
+    &.unfollow {
+        background-color: red;
     }
 }
 .pagination {

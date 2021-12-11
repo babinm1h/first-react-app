@@ -8,7 +8,7 @@ let initialState = {
         { id: 3, text: "Lorem ipsum dolor sit amet consectetur adipisicing.", likes: 27 },
     ],
 
-    profile: null
+    profile: ""
 }
 
 export const ProfileReducer = (state = initialState, action) => {
