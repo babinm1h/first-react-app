@@ -13,7 +13,7 @@
     margin: 0 auto;
     flex-direction: column;
     padding: 15px;
-    box-shadow: 0 0 7px rgba(51, 204, 255, 1);
+    box-shadow: 0 0 5px rgba(51, 204, 255, 1);
     border-radius: 20px;
     &_input {
         display: block;
@@ -22,7 +22,18 @@
         border: none;
         border-bottom: 3px solid rgba(51, 204, 255, 1);
         padding: 5px;
-        margin-bottom: 20px;
+        &.someError {
+            border-bottom: 3px solid red;
+        }
+        margin-bottom: 5px;
+    }
+    &_label {
+        text-transform: uppercase;
+        margin-bottom: 5px;
+        display: flex;
+        font-size: 11px;
+        font-weight: bold;
+        letter-spacing: 1px;
     }
     &_btn {
         display: flex;
@@ -40,6 +51,13 @@
         &:hover {
             background-color: rgb(0, 112, 150);
         }
+    }
+    &_error {
+        color: red;
+        font-size: 14px;
+    }
+    &_field {
+        margin-bottom: 25px;
     }
 }
 input:-webkit-autofill {

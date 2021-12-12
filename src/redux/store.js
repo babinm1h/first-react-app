@@ -4,6 +4,7 @@ import { DialogsReducer } from "../Reducers/DialogsReducer";
 import { ProfileReducer } from "../Reducers/ProfileReducer";
 import { usersReducer } from "../Reducers/UsersReducer";
 import thunkMiddleware from "redux-thunk"
+import { appReducer } from "../Reducers/AppReducer";
 
 
 const reducers = combineReducers({
@@ -11,6 +12,7 @@ const reducers = combineReducers({
     dialogsPage: DialogsReducer,
     usersPage: usersReducer,
     auth: authReducer,
+    app: appReducer
 })
 
 

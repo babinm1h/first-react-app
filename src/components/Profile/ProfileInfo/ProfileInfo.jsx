@@ -1,7 +1,8 @@
 import React from 'react';
 import userImg from "../../default/user.png"
+import ProfileStatus from './ProfileStatus/ProfileStatus';
 
-const ProfileInfo = ({ profile, ...props }) => {
+const ProfileInfo = ({ profile, updateStatus, status, ...props }) => {
     return (
         <div className="profile_block">
             <div className="profile_avatar">
@@ -12,7 +13,7 @@ const ProfileInfo = ({ profile, ...props }) => {
             </div>
             <div className="profile_info">
                 <div className="profile_name">{profile.fullName}</div>
-                <div className="profile_status">{profile.aboutMe}</div>
+                <ProfileStatus status={status} updateStatus={updateStatus} />
             </div>
         </div>
     );

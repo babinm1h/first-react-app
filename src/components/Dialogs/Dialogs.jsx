@@ -9,10 +9,6 @@ import MyDialogs from './MyDialogs/MyDialogs';
 
 const Dialogs = (props) => {
 
-    if (!props.isAuth) {
-        return <Navigate to="/login" />
-    }
-
     return (
         <div className="dialogs">
             <div className="dialogs_row">

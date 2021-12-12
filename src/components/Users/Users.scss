@@ -25,6 +25,10 @@
         margin: 0 12px;
     }
     &_status {
+        span {
+            margin-right: 5px;
+            font-style: italic;
+        }
     }
     &_name {
         font-weight: bold;

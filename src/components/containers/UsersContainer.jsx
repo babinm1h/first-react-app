@@ -5,6 +5,7 @@ import { setUsers, setCurrentPage, setTotalCount, setIsLoading, followingProgres
 import { usersAPI } from '../../API/usersApi';
 import Preloader from "../common/Preloader/Preloader"
 import { getUsers, follow, unfollow, } from '../../thunks/thunks';
+import { compose } from 'redux';
 
 export const UsersContainer = (props) => {
 
@@ -49,6 +50,8 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps,
-    { setCurrentPage, getUsers, follow, unfollow }
-)(UsersContainer);
+
+
+export default compose(
+    connect(mapStateToProps, { setCurrentPage, getUsers, follow, unfollow })
+)(UsersContainer)

@@ -17,7 +17,7 @@ const UserItem = ({ follow, unfollow, users, user, followingProgress, followProg
             </div>
             <div className="user_info">
                 <div className="user_name">{user.name}</div>
-                <div className="user_status">status:{user.status}</div>
+                <div className="user_status"><span>status:</span>{user.status}</div>
             </div>
 
 

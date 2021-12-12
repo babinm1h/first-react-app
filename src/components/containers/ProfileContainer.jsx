@@ -5,7 +5,9 @@ import { setProfile } from '../../action/actionCreators';
 import { profileApi } from '../../API/profileApi';
 import * as axios from "axios"
 import { useParams, Navigate } from "react-router-dom"
-import { setUserProfile } from '../../thunks/thunks';
+import { setUserProfile, updateStatus, getStatus } from '../../thunks/thunks';
+import withNavigateToLogin from '../../HOC/withNavigateToLogin';
+import { compose } from 'redux';
 
 
 
@@ -15,30 +17,32 @@ export const ProfileContainer = (props) => {
     let userId = params.userId
 
     if (!userId) {
-        userId = 11
+        userId = props.authorizedUser
     }
 
     React.useEffect(() => {
         props.setUserProfile(userId)
+        props.getStatus(userId)
     }, [])
 
 
-    if (!props.isAuth) {
-        return <Navigate to="/login" />
-    }
-
     return (
-        <Profile profile={props.profile} />
+        <Profile profile={props.profile} status={props.status} updateStatus={props.updateStatus} />
     );
 };
-
 
 
 const mapStateToProps = (state) => {
     return {
         profile: state.profilePage.profile,
+        status: state.profilePage.status,
+        authorizedUser: state.auth.id,
         isAuth: state.auth.isAuth
     }
 }
 
-export default connect(mapStateToProps, { setUserProfile })(ProfileContainer);
+
+export default compose(
+    connect(mapStateToProps, { setUserProfile, updateStatus, getStatus }),
+    withNavigateToLogin
+)(ProfileContainer)

@@ -1,4 +1,4 @@
-import { ADD_POST, SET_USER_PROFILE } from "../action/actionCreators"
+import { ADD_POST, SET_USER_PROFILE, SET_STATUS } from "../action/actionCreators"
 
 
 let initialState = {
@@ -8,7 +8,8 @@ let initialState = {
         { id: 3, text: "Lorem ipsum dolor sit amet consectetur adipisicing.", likes: 27 },
     ],
 
-    profile: ""
+    profile: "",
+    status: ""
 }
 
 export const ProfileReducer = (state = initialState, action) => {
@@ -23,6 +24,12 @@ export const ProfileReducer = (state = initialState, action) => {
 
         case SET_USER_PROFILE:
             return { ...state, profile: action.payload }
+
+        case SET_STATUS:
+            return {
+                ...state,
+                status: action.payload
+            }
 
         default:
             return state

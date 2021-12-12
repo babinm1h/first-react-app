@@ -1,4 +1,4 @@
-import { toggleFollowingProgress, setIsLoading, setTotalCount, setUsers, followSuccess, unfollowSuccess, setProfile, setAuthData } from "../action/actionCreators"
+import { toggleFollowingProgress, setIsLoading, setTotalCount, setUsers, followSuccess, unfollowSuccess, setProfile, setAuthData, setStatus, setInitialize } from "../action/actionCreators"
 import { authApi } from "../API/authApi"
 import { profileApi } from "../API/profileApi"
 import { usersAPI } from "../API/usersApi"
@@ -47,17 +47,66 @@ export const setUserProfile = (userId) => {
     }
 }
 
+export const updateStatus = (status) => {
+    return async (dispatch) => {
+        let response = await profileApi.setStatus(status)
+        if (response.data.resultCode === 0) {
+            dispatch(setStatus(status))
+        }
+    }
+}
+
+export const getStatus = (id) => {
+    return async (dispatch) => {
+        let response = await profileApi.getStatus(id)
+        dispatch(setStatus(response.data))
+    }
+}
+
 
 // thunks for auth
 export const getAuthUser = () => {
+    return (dispatch) => {
+        return authApi.authMe()
+            .then(response => {
+                if (response.data.resultCode === 0) {
+                    let { id, login, email, } = response.data.data
+                    dispatch(setAuthData(id, login, email, true))
+                }
+            })
+    }
+}
+
+
+export const login = (email, password, rememberMe) => {
     return async (dispatch) => {
-        let response = await authApi.getAuth()
+        let response = await authApi.login(email, password, rememberMe)
         if (response.data.resultCode === 0) {
-            let { id, login, email } = response.data.data
-            dispatch(setAuthData(id, login, email))
+            dispatch(getAuthUser())
+        }
+    }
+}
+
+
+export const logout = () => {
+    return async (dispatch) => {
+        let response = await authApi.logout()
+        if (response.data.resultCode === 0) {
+            dispatch(setAuthData(null, null, null, false))
         }
     }
 }
 
 
 
+// thunks for App
+export const initializeApp = () => {
+    return (dispatch) => {
+        const promise = dispatch(getAuthUser())
+
+        Promise.all([promise])
+            .then(() => {
+                dispatch(setInitialize())
+            })
+    }
+}

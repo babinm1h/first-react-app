@@ -41,3 +41,20 @@
         font-weight: 500;
     }
 }
+.logout_btn {
+    margin-left: 10px;
+    font-size: 15px;
+    background-color: #fff;
+    height: 35px;
+    padding: 0 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    color: rgba(51, 204, 255, 1);
+    font-weight: bold;
+    transition: all 0.2s linear;
+    &:hover {
+        box-shadow: 0 0 5px black;
+    }
+}

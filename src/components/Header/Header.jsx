@@ -12,7 +12,7 @@ const Header = (props) => {
                         <img src="https://img-cdn.hltv.org/teamlogo/JMeLLbWKCIEJrmfPaqOz4O.svg?ixlib=java-2.1.0&s=c02caf90234d3a3ebac074c84ba1ea62" alt="logo" />
                     </div>
 
-                    <HeaderLogin login={props.login} isAuth={props.isAuth} />
+                    <HeaderLogin login={props.login} isAuth={props.isAuth} logout={props.logout} />
                 </div>
             </div>
         </header>

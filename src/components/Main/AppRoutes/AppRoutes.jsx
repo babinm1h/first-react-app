@@ -10,6 +10,7 @@ import Profile from '../../Profile/Profile';
 import Users from '../../Users/Users';
 import ErrorPage from './ErrorPage';
 import Login from "../../Login/Login"
+import LoginContainer from '../../containers/LoginContainer';
 
 
 const AppRoutes = () => {
@@ -22,7 +23,7 @@ const AppRoutes = () => {
             <Route path="/users" element={<UsersContainer />} />
             <Route path="/music" element={<Music />} />
             <Route path="/news" element={<News />} />
-            <Route path="/login" element={<Login />} />
+            <Route path="/login" element={<LoginContainer />} />
 
             <Route path="/" element={<Profile />} />
             <Route path="*" element={<ErrorPage />} />
