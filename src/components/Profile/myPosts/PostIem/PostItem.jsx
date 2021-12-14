@@ -4,7 +4,7 @@ import { BiLike } from "react-icons/bi"
 
 
 
-const PostItem = ({ text, likes }) => {
+const PostItem = ({ text, likes, deletePost, PostId }) => {
     return (
         <div className="my-posts_item post">
             <div className="post_img">
@@ -17,7 +17,7 @@ const PostItem = ({ text, likes }) => {
                     <span ><BiLike size={16} /></span>{likes}
                 </div>
             </div>
-            <MyButton>Удалить</MyButton>
+            <MyButton onClick={() => deletePost(PostId)}>Удалить</MyButton>
         </div>
     );
 };

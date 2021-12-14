@@ -1,4 +1,4 @@
-import { ADD_POST, SET_USER_PROFILE, SET_STATUS } from "../action/actionCreators"
+import { ADD_POST, SET_USER_PROFILE, SET_STATUS, DELETE_POST, PROFILE_IS_LOADING } from "../action/actionCreators"
 
 
 let initialState = {
@@ -9,7 +9,8 @@ let initialState = {
     ],
 
     profile: "",
-    status: ""
+    status: "",
+    profileIsLoading: false
 }
 
 export const ProfileReducer = (state = initialState, action) => {
@@ -22,6 +23,12 @@ export const ProfileReducer = (state = initialState, action) => {
                 posts: [...state.posts, newPost]
             }
 
+        case DELETE_POST:
+            return {
+                ...state,
+                posts: state.posts.filter(p => p.id !== action.payload)
+            }
+
         case SET_USER_PROFILE:
             return { ...state, profile: action.payload }
 
@@ -29,6 +36,12 @@ export const ProfileReducer = (state = initialState, action) => {
             return {
                 ...state,
                 status: action.payload
+            }
+
+        case PROFILE_IS_LOADING:
+            return {
+                ...state,
+                profileIsLoading: action.payload
             }
 
         default:

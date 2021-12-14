@@ -8,6 +8,7 @@ import { useParams, Navigate } from "react-router-dom"
 import { setUserProfile, updateStatus, getStatus } from '../../thunks/thunks';
 import withNavigateToLogin from '../../HOC/withNavigateToLogin';
 import { compose } from 'redux';
+import Preloader from '../common/Preloader/Preloader';
 
 
 
@@ -25,6 +26,9 @@ export const ProfileContainer = (props) => {
         props.getStatus(userId)
     }, [])
 
+    if (props.profileIsLoading) {
+        return <Preloader />
+    }
 
     return (
         <Profile profile={props.profile} status={props.status} updateStatus={props.updateStatus} />
@@ -37,7 +41,8 @@ const mapStateToProps = (state) => {
         profile: state.profilePage.profile,
         status: state.profilePage.status,
         authorizedUser: state.auth.id,
-        isAuth: state.auth.isAuth
+        isAuth: state.auth.isAuth,
+        profileIsLoading: state.profilePage.profileIsLoading
     }
 }
 

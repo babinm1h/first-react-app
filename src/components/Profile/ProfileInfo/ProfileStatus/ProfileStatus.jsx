@@ -21,6 +21,9 @@ const ProfileStatus = ({ updateStatus, ...props }) => {
         setStatus(e.target.value)
     }
 
+    React.useEffect(() => {
+        setStatus(props.status)
+    }, [props.status])
 
     return (
         editMode

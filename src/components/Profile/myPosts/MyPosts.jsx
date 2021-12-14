@@ -8,13 +8,16 @@ import * as Yup from "yup"
 
 
 const MyPosts = (props) => {
+
     return (
         <div className="posts">
             <MyTitle>Мои посты</MyTitle>
             <PostsForm addNewPost={props.addNewPost} />
             <div className="my_posts">
                 <div className="my-posts_row">
-                    {props.posts.map(p => <PostItem text={p.text} key={p.id} likes={p.likes} />)}
+                    {props.posts.map(p => <PostItem text={p.text} key={p.id} likes={p.likes} PostId={p.id}
+                        deletePost={props.deletePost}
+                    />)}
                 </div>
             </div>
         </div>

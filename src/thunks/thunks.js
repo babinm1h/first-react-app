@@ -2,6 +2,7 @@ import { toggleFollowingProgress, setIsLoading, setTotalCount, setUsers, followS
 import { authApi } from "../API/authApi"
 import { profileApi } from "../API/profileApi"
 import { usersAPI } from "../API/usersApi"
+import { setProfileLoading } from "../action/actionCreators"
 
 
 
@@ -42,8 +43,10 @@ export const unfollow = (userId) => {
 // thunks for profilePage
 export const setUserProfile = (userId) => {
     return async (dispatch) => {
+        dispatch(setProfileLoading(true))
         let response = await profileApi.setProfile(userId)
         dispatch(setProfile(response))
+        dispatch(setProfileLoading(false))
     }
 }
 

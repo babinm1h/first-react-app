@@ -9,13 +9,6 @@ import { getAuthUser, initializeApp } from './thunks/thunks';
 
 
 function App(props) {
-  React.useEffect(() => {
-    props.initializeApp()
-  }, [])
-
-  if (!props.initialized) {
-    return <Preloader />
-  }
 
   return (
     <div className="wrapper">
@@ -27,10 +20,5 @@ function App(props) {
   );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    initialized: state.app.initialized
-  }
-}
 
-export default connect(mapStateToProps, { getAuthUser, initializeApp })(App);
+export default App;

@@ -11,11 +11,11 @@ const Navbar = () => {
 
 
     let linksArray = [
-        { icon: CgProfile, text: `Профиль`, path: "/profile" },
-        { icon: CgMail, text: `Сообщения`, path: "/dialogs" },
-        { icon: RiUserSearchLine, text: `Пользователи`, path: "/users" },
-        { icon: RiMusic2Line, text: `Музыка`, path: "/music" },
-        { icon: IoNewspaperOutline, text: `Новости`, path: "/news" },
+        { icon: <CgProfile size={21} />, text: `Профиль`, path: "/profile" },
+        { icon: <CgMail size={21} />, text: `Сообщения`, path: "/dialogs" },
+        { icon: <RiUserSearchLine size={21} />, text: `Пользователи`, path: "/users" },
+        { icon: <RiMusic2Line size={21} />, text: `Музыка`, path: "/music" },
+        { icon: <IoNewspaperOutline size={21} />, text: `Новости`, path: "/news" },
     ]
 
 
@@ -23,31 +23,7 @@ const Navbar = () => {
 
         <nav className="nav">
             <ul className="nav_row">
-                <li className="nav_item">
-                    <NavLink to="/profile" className="nav_link">
-                        <span><CgProfile size={21} /></span> Профиль
-                    </NavLink>
-                </li>
-                <li className="nav_item">
-                    <NavLink to="/dialogs" className="nav_link">
-                        <span><CgMail size={21} /></span>  Сообщения
-                    </NavLink>
-                </li>
-                <li className="nav_item">
-                    <NavLink to="/users" className="nav_link">
-                        <span><RiUserSearchLine size={21} /></span>  Пользователи
-                    </NavLink>
-                </li>
-                <li className="nav_item">
-                    <NavLink to="/music" className="nav_link">
-                        <span><RiMusic2Line size={21} /></span> Музыка
-                    </NavLink>
-                </li>
-                <li className="nav_item">
-                    <NavLink to="/news" className="nav_link">
-                        <span><IoNewspaperOutline size={21} /></span>   Новости
-                    </NavLink>
-                </li>
+                <NavbarLinks linksArray={linksArray} />
             </ul>
         </nav>
 
@@ -55,8 +31,15 @@ const Navbar = () => {
 };
 
 
-const NavbarLinks = (props) => {
-
+const NavbarLinks = ({ linksArray }) => {
+    return (
+        linksArray.map(item => <li className="nav_item" key={item.text}>
+            <NavLink to={item.path} className="nav_link">
+                <span>{item.icon}</span> {item.text}
+            </NavLink>
+        </li>
+        )
+    )
 }
 
 

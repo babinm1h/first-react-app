@@ -2,6 +2,7 @@ import React from 'react';
 import MyPosts from '../Profile/myPosts/MyPosts';
 import { connect } from "react-redux"
 import { addNewPost } from '../../action/actionCreators';
+import { deletePost } from '../../action/actionCreators';
 
 
 const mapStateToProps = (state) => {
@@ -12,6 +13,4 @@ const mapStateToProps = (state) => {
 
 
 
-export default connect(mapStateToProps, {
-    addNewPost
-})(MyPosts);
+export default connect(mapStateToProps, { addNewPost, deletePost })(MyPosts);

@@ -21,6 +21,7 @@ $myblue: rgb(218, 245, 255);
         cursor: pointer;
         transition: all 0.1s linear;
         border-radius: 6px;
+        color: black;
         &.active {
             color: #5181b8;
         }
