@@ -1,5 +1,4 @@
 import React from 'react';
-import { Navigate } from 'react-router';
 import "./Dialogs.scss"
 import Messages from './Messages/Messages';
 import MyDialogs from './MyDialogs/MyDialogs';

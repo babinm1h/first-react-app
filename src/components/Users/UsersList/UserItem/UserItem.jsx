@@ -1,6 +1,5 @@
 import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
-import { usersAPI } from '../../../../API/usersApi';
+import { Link } from 'react-router-dom';
 import MyButton from '../../../common/MyButton';
 import userImg from "../../../default/user.png"
 

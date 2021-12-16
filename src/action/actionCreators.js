@@ -8,6 +8,8 @@ export const SET_USER_PROFILE = "profilePage/SET_USER_PROFILE"
 export const SET_STATUS = "profilePage/SET_STATUS"
 export const DELETE_POST = "profilePage/DELETE_POST"
 export const PROFILE_IS_LOADING = "profilePage/PROFILE_IS_LOADING"
+export const CHANGE_PHOTO = "CHANGE_PHOTO"
+export const SET_ERROR = "SET_ERROR"
 
 //users
 export const FOLLOW = "usersPage/FOLLOW"
@@ -33,6 +35,7 @@ export const setProfile = (profile) => ({ type: SET_USER_PROFILE, payload: profi
 export const setStatus = (status) => ({ type: SET_STATUS, payload: status })
 export const deletePost = (post) => ({ type: DELETE_POST, payload: post })
 export const setProfileLoading = (isLoading) => ({ type: PROFILE_IS_LOADING, payload: isLoading })
+export const changePhoto = (photos) => ({ type: CHANGE_PHOTO, payload: photos })
 
 // dialogs actions
 export const addNewMessage = (message) => ({ type: ADD_MESSAGE, payload: message })

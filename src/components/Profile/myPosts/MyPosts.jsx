@@ -2,7 +2,7 @@ import React from 'react';
 import MyTitle from '../../common/MyTitle';
 import MyTextArea from '../../common/MyTextArea';
 import MyButton from '../../common/MyButton';
-import { ErrorMessage, Field, Form, Formik, useFormik } from "formik";
+import { Field, Form, Formik, useFormik } from "formik";
 import PostItem from './PostIem/PostItem';
 import * as Yup from "yup"
 
@@ -17,6 +17,7 @@ const MyPosts = (props) => {
                 <div className="my-posts_row">
                     {props.posts.map(p => <PostItem text={p.text} key={p.id} likes={p.likes} PostId={p.id}
                         deletePost={props.deletePost}
+                        profilePhoto={props.profile.photos.small}
                     />)}
                 </div>
             </div>

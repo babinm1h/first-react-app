@@ -1,4 +1,4 @@
-import { ADD_POST, SET_USER_PROFILE, SET_STATUS, DELETE_POST, PROFILE_IS_LOADING } from "../action/actionCreators"
+import { ADD_POST, SET_USER_PROFILE, SET_STATUS, DELETE_POST, PROFILE_IS_LOADING, CHANGE_PHOTO, } from "../action/actionCreators"
 
 
 let initialState = {
@@ -10,7 +10,7 @@ let initialState = {
 
     profile: "",
     status: "",
-    profileIsLoading: false
+    profileIsLoading: false,
 }
 
 export const ProfileReducer = (state = initialState, action) => {
@@ -42,6 +42,12 @@ export const ProfileReducer = (state = initialState, action) => {
             return {
                 ...state,
                 profileIsLoading: action.payload
+            }
+
+        case CHANGE_PHOTO:
+            return {
+                ...state,
+                profile: { ...state.profile, photos: action.payload }
             }
 
         default:

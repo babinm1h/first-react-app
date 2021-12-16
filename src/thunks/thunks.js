@@ -1,4 +1,4 @@
-import { toggleFollowingProgress, setIsLoading, setTotalCount, setUsers, followSuccess, unfollowSuccess, setProfile, setAuthData, setStatus, setInitialize } from "../action/actionCreators"
+import { toggleFollowingProgress, setIsLoading, setTotalCount, setUsers, followSuccess, unfollowSuccess, setProfile, setAuthData, setStatus, setInitialize, changePhoto } from "../action/actionCreators"
 import { authApi } from "../API/authApi"
 import { profileApi } from "../API/profileApi"
 import { usersAPI } from "../API/usersApi"
@@ -12,7 +12,7 @@ export const getUsers = (currentPage, pageSize) => {
     return async (dispatch) => {
         let response = await usersAPI.getUsers(currentPage, pageSize)
         dispatch(setUsers(response.items))
-        dispatch(setTotalCount(response.totalCount = 77))
+        dispatch(setTotalCount(response.totalCount))
         dispatch(setIsLoading(false))
     }
 }
@@ -63,6 +63,25 @@ export const getStatus = (id) => {
     return async (dispatch) => {
         let response = await profileApi.getStatus(id)
         dispatch(setStatus(response.data))
+    }
+}
+
+
+export const savePhoto = (img) => async (dispatch) => {
+    let response = await profileApi.savePhoto(img);
+    if (response.data.resultCode === 0) {
+        dispatch(changePhoto(response.data.data.photos))
+    }
+}
+
+
+export const saveProfileData = (profile) => {
+    return async (dispatch) => {
+        let response = await profileApi.saveProfile(profile)
+        if (response.data.resultCode === 0) {
+            dispatch(setProfile(profile))
+            console.log(profile)
+        }
     }
 }
 

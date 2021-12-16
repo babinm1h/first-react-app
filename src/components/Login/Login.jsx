@@ -1,9 +1,7 @@
 import React from 'react';
-import MyTitle from '../common/MyTitle';
 import "./Login.scss"
 import { Formik, useFormik, Field, Form } from 'formik';
 import * as Yup from "yup";
-import MyInput from "../common/MyInput"
 import { Navigate } from 'react-router';
 
 

@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Users from '../Users/Users';
-import { setUsers, setCurrentPage, setTotalCount, setIsLoading, followingProgress } from '../../action/actionCreators';
-import { usersAPI } from '../../API/usersApi';
+import { setCurrentPage } from '../../action/actionCreators';
 import Preloader from "../common/Preloader/Preloader"
 import { getUsers, follow, unfollow, } from '../../thunks/thunks';
 import { compose } from 'redux';

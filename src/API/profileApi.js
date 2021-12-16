@@ -1,4 +1,3 @@
-import * as axios from "axios"
 import instance from "./instance"
 
 
@@ -13,6 +12,20 @@ export const profileApi = {
     },
 
     setStatus(status) {
-        return instance.put(`/profile/status`, { status: status })
+        return instance.put(`profile/status`, { status: status })
+    },
+
+    savePhoto(img) {
+        let formData = new FormData();
+        formData.append("image", img)
+        return instance.put(`profile/photo`, formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
+    },
+
+    saveProfile(profile) {
+        return instance.put(`profile`, profile)
     }
 }

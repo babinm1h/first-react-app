@@ -2,8 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import "./Navbar.scss"
 import { CgProfile, CgMail } from "react-icons/cg";
-import { RiUserSearchLine, RiMusic2Line } from "react-icons/ri"
-import { IoNewspaperOutline } from "react-icons/io5"
+import { RiUserSearchLine } from "react-icons/ri"
 
 
 
@@ -14,8 +13,6 @@ const Navbar = () => {
         { icon: <CgProfile size={21} />, text: `Профиль`, path: "/profile" },
         { icon: <CgMail size={21} />, text: `Сообщения`, path: "/dialogs" },
         { icon: <RiUserSearchLine size={21} />, text: `Пользователи`, path: "/users" },
-        { icon: <RiMusic2Line size={21} />, text: `Музыка`, path: "/music" },
-        { icon: <IoNewspaperOutline size={21} />, text: `Новости`, path: "/news" },
     ]
 
 

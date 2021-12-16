@@ -1,20 +1,21 @@
 .profile {
     padding: 10px;
-    &_block {
+    &_maininfo {
         display: flex;
         align-items: center;
-        margin-bottom: 50px;
+        margin-bottom: 15px;
     }
     &_avatar {
         margin-right: 20px;
         img {
+            border: 1px solid #999;
             width: 180px;
             height: 180px;
             border-radius: 99999px;
             object-fit: cover;
-            @media (max-width: 1000px) {
-                width: 150px;
-                height: 150px;
+            @media (max-width: 900px) {
+                width: 130px;
+                height: 130px;
             }
         }
     }
@@ -43,6 +44,9 @@
     align-items: center;
     &_img {
         margin-right: 15px;
+        img {
+            border: 1px solid #999;
+        }
     }
     &_body {
         flex: 1 1 100%;
@@ -83,4 +87,120 @@
             border: 2px solid rgb(0, 183, 255);
         }
     }
+}
+.avatar-change {
+    &_button {
+        border: none;
+        visibility: hidden;
+        opacity: 0;
+        height: 0.1px;
+        display: none;
+    }
+    label {
+        font-size: 14px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 180px;
+        width: 100%;
+        border: 2px solid rgb(0, 183, 255);
+        padding: 4px 0;
+        cursor: pointer;
+        white-space: nowrap;
+        transition: all 0.2s linear;
+        &:hover {
+            box-shadow: 0 0 4px rgb(0, 183, 255);
+        }
+        @media (max-width: 900px) {
+            max-width: 130px;
+            font-size: 12px;
+        }
+    }
+    &_inner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+.profile-data {
+    margin-top: 30px;
+    margin-bottom: 50px;
+    &_item {
+        margin-bottom: 15px;
+    }
+    &_label {
+        font-weight: bold;
+        display: inline-block;
+        margin-right: 12px;
+    }
+    &_socials {
+        margin-top: 10px;
+    }
+    input {
+        @media (max-width: 750px) {
+            display: block;
+            margin-top: 5px;
+        }
+    }
+    &_link {
+        text-transform: uppercase;
+        font-weight: 500;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+.socials {
+    &_row {
+        display: flex;
+        align-items: center;
+    }
+    &_item {
+        margin-right: 12px;
+    }
+    &_link {
+        background-color: rgb(87, 207, 255);
+        width: 40px;
+        height: 40px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        box-shadow: 0 0 4px #999;
+        color: black;
+        font-weight: bold;
+        transition: all 0.2s linear;
+        &.github {
+            background-color: rgb(72, 255, 72);
+        }
+        &.vk {
+            background-color: rgb(88, 169, 255);
+        }
+    }
+}
+.profile-change {
+    button {
+        margin: 10px 0;
+        font-size: 14px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 180px;
+        width: 100%;
+        border: 2px solid rgb(0, 183, 255);
+        padding: 4px 0;
+        cursor: pointer;
+        white-space: nowrap;
+        transition: all 0.2s linear;
+        &:hover {
+            box-shadow: 0 0 4px rgb(0, 183, 255);
+        }
+        @media (max-width: 900px) {
+            max-width: 130px;
+            font-size: 12px;
+        }
+    }
+}
+.inputError {
+    border: 2px solid red;
 }
