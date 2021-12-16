@@ -1,5 +1,5 @@
 import React from 'react';
-import userImg from "../../default/user.png"
+import userImg from "../../../default/user.png"
 import ProfileStatus from './ProfileStatus/ProfileStatus';
 import { MdUpload } from "react-icons/md"
 import ProfileData from './ProfileData/ProfileData';

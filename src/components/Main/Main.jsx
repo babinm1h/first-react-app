@@ -1,14 +1,16 @@
 import React from 'react';
-import Navbar from '../Navbar/Navbar';
+import MenuBurger from '../Navbar/MenuBurger/MenuBurger'
+import Navbar from "../Navbar/Navbar"
 import AppRoutes from './AppRoutes/AppRoutes';
-
+import { isMobile, } from 'react-device-detect';
 
 
 const Main = () => {
     return (
         <div className="container">
             <div className="main">
-                <Navbar />
+
+                {isMobile ? <MenuBurger /> : <Navbar />}
 
                 <div className="main_content">
                     <AppRoutes />

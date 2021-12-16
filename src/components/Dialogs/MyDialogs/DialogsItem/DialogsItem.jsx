@@ -1,5 +1,5 @@
 import React from 'react';
-import userImg from "../../../default/user.png"
+import userImg from "../../../../default/user.png"
 
 
 const DialogsItem = ({ name, ...props }) => {

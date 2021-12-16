@@ -19,8 +19,6 @@
             }
         }
     }
-    &_info {
-    }
     &_name {
         font-weight: bold;
         font-size: 24px;
@@ -127,6 +125,7 @@
     margin-bottom: 50px;
     &_item {
         margin-bottom: 15px;
+        white-space: nowrap;
     }
     &_label {
         font-weight: bold;

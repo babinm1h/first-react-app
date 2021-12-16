@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import MyButton from '../../../common/MyButton';
-import userImg from "../../../default/user.png"
+import userImg from "../../../../default/user.png"
 
 const UserItem = ({ follow, unfollow, users, user, followingProgress, followProgress }) => {
     return (

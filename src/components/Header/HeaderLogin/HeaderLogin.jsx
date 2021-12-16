@@ -4,7 +4,6 @@ import "../../../App.scss"
 
 const HeaderLogin = ({ logout, ...props }) => {
 
-
     return (
         <div className="login-block">
             {props.isAuth

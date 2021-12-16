@@ -1,7 +1,6 @@
 import React, { Suspense } from 'react';
 import { Route, Routes } from 'react-router';
 // import DialogsContainer from '../../containers/DialogsContainer';
-import Profile from '../../Profile/Profile';
 import ErrorPage from './ErrorPage';
 import LoginContainer from '../../containers/LoginContainer';
 import Preloader from '../../common/Preloader/Preloader';
@@ -21,7 +20,7 @@ const AppRoutes = () => {
                 <Route path="/users" element={<UsersContainer />} />
                 <Route path="/login" element={<LoginContainer />} />
 
-                <Route path="/" element={<Profile />} />
+                <Route path="/" element={<ProfileContainer />} />
                 <Route path="*" element={<ErrorPage />} />
             </Routes>
         </Suspense>
