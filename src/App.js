@@ -4,7 +4,7 @@ import HeaderContainer from './components/containers/HeaderContainer';
 import Main from './components/Main/Main';
 
 
-function App(props) {
+function App() {
 
   return (
     <div className="wrapper">

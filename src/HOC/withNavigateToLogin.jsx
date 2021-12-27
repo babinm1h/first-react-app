@@ -2,6 +2,9 @@ import React from 'react';
 import { Navigate } from "react-router-dom"
 import { connect } from "react-redux"
 
+
+
+
 let mapStateToProps = (state) => {
     return {
         isAuth: state.auth.isAuth
@@ -9,7 +12,8 @@ let mapStateToProps = (state) => {
 }
 
 
-const withNavigateToLogin = (Component) => {
+// CP - props fow wrapped component
+function withNavigateToLogin(Component) {
 
     const NavigateComponent = (props) => {
         if (!props.isAuth) {
@@ -24,4 +28,6 @@ const withNavigateToLogin = (Component) => {
 };
 
 export default withNavigateToLogin;
+
+
 

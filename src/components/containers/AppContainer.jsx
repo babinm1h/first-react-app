@@ -9,7 +9,7 @@ const AppMainContainer = (props) => {
 
     React.useEffect(() => {
         props.initializeApp()
-    }, [])
+    }, [props])
 
     if (!props.initialized) {
         return <Preloader />
@@ -19,6 +19,7 @@ const AppMainContainer = (props) => {
         <App {...props} />
     );
 };
+
 
 const mapStateToProps = (state) => {
     return {

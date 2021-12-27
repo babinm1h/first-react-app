@@ -1,8 +1,8 @@
-import React from 'react';
 import "./Login.scss"
 import { Formik, useFormik, Field, Form } from 'formik';
 import * as Yup from "yup";
 import { Navigate } from 'react-router';
+
 
 
 const Login = (props) => {
@@ -21,6 +21,8 @@ const Login = (props) => {
 
 
 
+
+
 const LoginForm = ({ login }) => {
 
     const formik = useFormik({
@@ -29,9 +31,9 @@ const LoginForm = ({ login }) => {
             password: ""
         },
         onSubmit: (values) => {
-            login(values.email, values.password, false, false)
+            login(values.email, values.password, false)     // mb +1 false
         },
-        validationSchema: Yup.object({
+        validationSchema: Yup.object().shape({
             email: Yup.string()
                 .email("Введите свой e-mail")
                 .required("Введите свой e-mail"),
@@ -43,7 +45,7 @@ const LoginForm = ({ login }) => {
     })
 
     return (
-        <Formik>
+        <Formik initialValues={formik.values} onSubmit={formik.handleSubmit}>
             <Form action="" className="login-form" onSubmit={formik.handleSubmit}>
                 <div className="login_title">Вход в аккаунт</div>
 

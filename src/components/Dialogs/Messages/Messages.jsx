@@ -1,9 +1,11 @@
-import { Formik, Form, Field, useFormik } from 'formik';
-import React from 'react';
+import { Formik, Form, Field, useFormik, FormikProps } from 'formik';
+import React, { FormEvent } from 'react';
 import MyButton from '../../common/MyButton';
 import MyTextArea from '../../common/MyTextArea';
 import MessageItem from './MessageItem/MessageItem';
 import * as Yup from "yup";
+import { MessageType } from '../../../types/dialogsTypes';
+
 
 const Messages = ({ messages, addNewMessage }) => {
     const messageItems = messages.map(m => <MessageItem messageText={m.message} key={m.id} />)
@@ -26,11 +28,12 @@ const Messages = ({ messages, addNewMessage }) => {
 
 
 
+
 const MessagesForm = ({ addNewMessage }) => {
 
     const formik = useFormik({
         initialValues: {
-            message: ""
+            message: "",
         },
         onSubmit(values, { resetForm }) {
             addNewMessage(values.message)

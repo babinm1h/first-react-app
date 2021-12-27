@@ -18,6 +18,10 @@
                 cursor: pointer;
                 box-shadow: 0 0 8px rgb(0, 183, 255);
             }
+            @media (max-width: 600px) {
+                width: 80px;
+                height: 80px;
+            }
         }
     }
     &_info {
